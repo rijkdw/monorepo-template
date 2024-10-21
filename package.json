@@ -1,0 +1,19 @@
+{
+  "name": "monorepo-template",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "pnpm --filter ./apps/example-app dev",
+    "test": "./scripts/test-all.sh"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.8",
+    "@babel/preset-env": "^7.25.8",
+    "@babel/preset-typescript": "^7.25.7",
+    "@types/jest": "^29.5.13",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  }
+}
