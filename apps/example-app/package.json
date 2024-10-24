@@ -6,7 +6,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "react": "^18.3.1",

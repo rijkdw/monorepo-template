@@ -6,7 +6,8 @@
     "format-write": "prettier . --write",
     "format-check": "prettier . --list-different",
     "lint": "eslint",
-    "test": "./scripts/test-all.sh"
+    "test": "./scripts/test-all.sh",
+    "typecheck": "pnpm --parallel typecheck"
   },
   "devDependencies": {
     "@babel/core": "^7.25.8",

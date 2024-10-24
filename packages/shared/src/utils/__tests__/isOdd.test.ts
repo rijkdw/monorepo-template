@@ -5,6 +5,7 @@ it("returns true for odd numbers", () => {
   expect(isOdd(5)).toBe(true);
   expect(isOdd(-15)).toBe(true);
   expect(isOdd(222222222222229)).toBe(true);
+  expect(isOdd(222222222222228)).toBe(false);
 });
 
 it("returns false for even numbers", () => {

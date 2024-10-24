@@ -8,18 +8,6 @@ A simple monorepo template for Javascript projects with:
 
 
 
-## Quick setup
-
-Run the quick setup script to clone this repository without the template's commit history.
-
-```sh
-$ ./scripts/quick-setup.sh <path-to-your-new-monorepo>
-```
-
-Read more about the quick setup script [here](#quick-setupsh).
-
-
-
 ## How to use the template effectively
 
 * Use `pnpm` for workspace and dependency management.
@@ -34,18 +22,6 @@ Read more about the quick setup script [here](#quick-setupsh).
 ## Utility scripts
 
 These are located in `<monorepo-root>/scripts`.
-
-
-### `quick-setup.sh`
-
-Creates a clone of this monorepo template without the template's commit history.
-Usage:
-
-```sh
-$ ./scripts/quick-setup.sh <path-to-your-new-monorepo>
-```
-
-A copy of the monorepo will be created at `./path-to-your-new-monorepo`.
 
 
 ### `new-package.sh`
