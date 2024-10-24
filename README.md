@@ -67,6 +67,5 @@ Runs the `test` command in each app and package, sequentially.  Add new apps and
 
 ## Planned features
 
-* Prettier and eslint support
 * Pre-commit hooks
 * Github actions
