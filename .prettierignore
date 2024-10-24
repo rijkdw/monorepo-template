@@ -1,0 +1,12 @@
+# Ignore artifacts:
+build
+coverage
+node_modules
+
+README.md
+pnpm-lock.yaml
+pnpm-workspace.yaml
+
+*.config.base.js
+*.config.js
+*.config.mjs
