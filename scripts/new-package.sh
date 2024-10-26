@@ -2,5 +2,5 @@
 
 PKG_NAME="$1"
 
-cp -r packages/__template packages/$PKG_NAME
-sed "s/__template/$PKG_NAME/" packages/__template/package.json > packages/$PKG_NAME/package.json
+rsync -a --exclude **/node_modules templates/packages/template/* packages/$PKG_NAME
+sed "s/__template__/$PKG_NAME/" templates/packages/template/package.json > packages/$PKG_NAME/package.json

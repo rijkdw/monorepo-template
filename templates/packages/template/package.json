@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/__template",
+  "name": "@monorepo/__template__",
   "version": "0.0.0",
   "scripts": {
     "test": "jest",

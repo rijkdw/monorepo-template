@@ -17,5 +17,10 @@
     "strict": true,
     "target": "esnext",
     "useUnknownInCatchVariables": false
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
   }
 }
