@@ -43,5 +43,4 @@ Runs the `test` command in each app and package, sequentially.  Add new apps and
 
 ## Planned features
 
-* Pre-commit hooks
-* Github actions
+None at the moment.
