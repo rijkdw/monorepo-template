@@ -19,6 +19,7 @@ confirm() {
 # Pre-requisites
 # ---------------------------------------------------------------------------------
 
+echo "Installing dependencies with pnpm..."
 pnpm install
 
 # ---------------------------------------------------------------------------------
@@ -40,7 +41,7 @@ if echo "$MONOREPO_NAME" | grep -q " "; then
 fi
 
 echo
-echo "Names of apps and packages will be preceded with \"@$MONOREPO_NAME/\" e.g."
+echo "Apps' and packages' names will be prefixed with \"@$MONOREPO_NAME/\" e.g."
 echo "  @$MONOREPO_NAME/utils"
 echo "  @$MONOREPO_NAME/web"
 echo "  @$MONOREPO_NAME/api"
@@ -71,4 +72,5 @@ echo "Setting up git..."
 # git init
 # cp monorepo-management/git-hooks/pre-commit .git/hooks/
 # chmod +x .git/hooks/pre-commit
+# git add -A
 # git commit -m "first commit"
