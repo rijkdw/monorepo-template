@@ -64,10 +64,10 @@ echo "Configuring monorepo..."
 echo -n $MONOREPO_NAME >monorepo-management/constants/MONOREPO_NAME
 
 # delete "setup" from pnpm commands and accompanying script
-sed \
+sed -i '' \
     -e '5d' \
     -e "s/__MONOREPO_NAME__/$MONOREPO_NAME/" \
-    package.json | tee package.json
+    package.json
 rm -f monorepo-management/scripts/first-time-setup.sh
 
 # ---------------------------------------------------------------------------------
