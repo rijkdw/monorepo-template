@@ -43,4 +43,6 @@ Runs the `test` command in each app and package, sequentially.  Add new apps and
 
 ## Planned features
 
-None at the moment.
+1. Add proper first-time setup script
+1. Add project name for use in app/package names
+1. Move setup files + templates out of root, into some meta folder maybe called "monorepo-utils"

@@ -2,12 +2,13 @@
   "name": "monorepo-template",
   "version": "0.0.0",
   "scripts": {
-    "dev": "pnpm --filter ./apps/example-app dev",
+    "dev": "pnpm --parallel dev",
     "format-write": "prettier . --write",
     "format-check": "prettier . --list-different",
     "lint": "eslint",
     "test": "./scripts/test-all.sh",
-    "typecheck": "pnpm --parallel typecheck"
+    "typecheck": "pnpm --parallel typecheck",
+    "monorepo:new-package": ""
   },
   "devDependencies": {
     "@babel/core": "^7.25.8",

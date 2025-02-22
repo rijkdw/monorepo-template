@@ -10,3 +10,4 @@ pnpm-workspace.yaml
 *.config.base.js
 *.config.js
 *.config.mjs
+*.config.ts
