@@ -1,8 +1,10 @@
 {
-  "name": "monorepo-template",
+  "name": "__MONOREPO_NAME__",
   "version": "0.0.0",
   "scripts": {
-    "dev": "pnpm --filter ./apps/example-app dev",
+    "monorepo:first-time-setup": "./monorepo-management/scripts/first-time-setup.sh",
+    "monorepo:new-package": "./monorepo-management/scripts/new-package.sh",
+    "dev": "pnpm --parallel dev",
     "format-write": "prettier . --write",
     "format-check": "prettier . --list-different",
     "lint": "eslint",

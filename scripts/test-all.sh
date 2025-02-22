@@ -1,15 +1,20 @@
 #!/bin/bash
 
-function print-line (){
+function print-line() {
     echo "=============================================="
 }
 
-function test-one () {
+function run-tests-in() {
     print-line
     echo "Testing $1:"
     print-line
     pnpm --filter $1 test
 }
 
-test-one ./packages/shared
-test-one ./apps/example-app
+for package in ./packages/*; do
+    run-tests-in $package
+done
+
+for package in ./apps/*; do
+    run-tests-in $package
+done
