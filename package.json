@@ -2,7 +2,7 @@
   "name": "__MONOREPO_NAME__",
   "version": "0.0.0",
   "scripts": {
-    "monorepo:first-time-setup": "./monorepo-management/scripts/setup.sh",
+    "monorepo:first-time-setup": "./monorepo-management/scripts/first-time-setup.sh",
     "monorepo:new-package": "./monorepo-management/scripts/new-package.sh",
     "dev": "pnpm --parallel dev",
     "format-write": "prettier . --write",
