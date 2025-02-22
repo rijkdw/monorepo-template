@@ -68,7 +68,7 @@ sed \
     -e '5d' \
     -e "s/__MONOREPO_NAME__/$MONOREPO_NAME/" \
     package.json | tee package.json
-rm -f monorepo-management/scripts/setup.sh
+rm -f monorepo-management/scripts/first-time-setup.sh
 
 # ---------------------------------------------------------------------------------
 # Set up git
