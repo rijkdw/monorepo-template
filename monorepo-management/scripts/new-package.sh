@@ -1,11 +1,33 @@
 #!/bin/bash
 
-PACKAGE_NAME="$1"
-MONOREPO_NAME="$(< monorepo-management/constants/MONOREPO_NAME)"
-
 PACKAGE_TEMPLATE_PATH="monorepo-management/templates/package"
 
-echo $MONOREPO_NAME
+MONOREPO_NAME="$(<monorepo-management/constants/MONOREPO_NAME)"
+
+# Ask for package name (if not provided)
+
+if [[ -z "$1" ]]; then
+    read -p "Package name: " PACKAGE_NAME
+else
+    PACKAGE_NAME="$1"
+fi
+
+# Validate package name
+
+if [[ -z "$PACKAGE_NAME" ]]; then
+    echo "Error: Package name must be provided."
+    exit 1
+fi
+
+if echo "$PACKAGE_NAME" | grep -q " "; then
+    echo "Error: Package name contains spaces."
+    exit 1
+fi
+
+# Copy and replace templates
+
+echo "MONOREPO_NAME=$MONOREPO_NAME"
+echo "PACKAGE_NAME=$PACKAGE_NAME"
 
 rsync -a \
     --exclude **/node_modules \
@@ -14,4 +36,4 @@ rsync -a \
 sed \
     -e "s/__PACKAGE_NAME__/$PACKAGE_NAME/" \
     -e "s/__MONOREPO_NAME__/$MONOREPO_NAME/" \
-    $PACKAGE_TEMPLATE_PATH/package.json > packages/$PACKAGE_NAME/package.json
+    $PACKAGE_TEMPLATE_PATH/package.json >packages/$PACKAGE_NAME/package.json
