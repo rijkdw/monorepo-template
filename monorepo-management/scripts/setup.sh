@@ -16,6 +16,12 @@ confirm() {
 }
 
 # ---------------------------------------------------------------------------------
+# Pre-requisites
+# ---------------------------------------------------------------------------------
+
+pnpm install
+
+# ---------------------------------------------------------------------------------
 # Get monorepo name
 # ---------------------------------------------------------------------------------
 
@@ -63,6 +69,6 @@ echo
 echo "Setting up git..."
 # rm -rf .git
 # git init
-# git commit -m "first commit"
 # cp monorepo-management/git-hooks/pre-commit .git/hooks/
 # chmod +x .git/hooks/pre-commit
+# git commit -m "first commit"
