@@ -2,14 +2,14 @@
   "name": "monorepo-template",
   "version": "0.0.0",
   "scripts": {
+    "setup": "./monorepo-management/scripts/setup.sh",
     "dev": "pnpm --parallel dev",
     "format-write": "prettier . --write",
     "format-check": "prettier . --list-different",
     "lint": "eslint",
     "test": "./scripts/test-all.sh",
     "typecheck": "pnpm --parallel typecheck",
-    "monorepo:new-package": "./monorepo-management/scripts/new-package.sh",
-    "monorepo:setup": "./monorepo-management/scripts/setup.sh"
+    "monorepo:new-package": "./monorepo-management/scripts/new-package.sh"
   },
   "devDependencies": {
     "@babel/core": "^7.25.8",
