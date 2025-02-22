@@ -60,9 +60,11 @@ fi
 
 echo
 echo "Configuring monorepo..."
+
 echo -n $MONOREPO_NAME >monorepo-management/constants/MONOREPO_NAME
+
 # delete "setup" from pnpm commands and accompanying script
-sed -e '5d' package.json > package.json
+sed -e '5d' package.json >package.json
 rm -f monorepo-management/scripts/setup.sh
 
 # ---------------------------------------------------------------------------------
@@ -71,9 +73,12 @@ rm -f monorepo-management/scripts/setup.sh
 
 echo
 echo "Setting up git..."
+
 rm -rf .git
 git init
+
 cp monorepo-management/git-hooks/pre-commit .git/hooks/
 chmod +x .git/hooks/pre-commit
+
 git add -A
 git commit -m "first commit"
