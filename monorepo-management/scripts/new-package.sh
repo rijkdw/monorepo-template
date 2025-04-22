@@ -26,9 +26,6 @@ fi
 
 # Copy and replace templates
 
-echo "MONOREPO_NAME=$MONOREPO_NAME"
-echo "PACKAGE_NAME=$PACKAGE_NAME"
-
 rsync -a \
     --exclude **/node_modules \
     $PACKAGE_TEMPLATE_PATH/* packages/$PACKAGE_NAME

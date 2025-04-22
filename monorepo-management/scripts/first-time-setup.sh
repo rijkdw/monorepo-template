@@ -15,6 +15,11 @@ confirm() {
     fi
 }
 
+cancel-setup() {
+    echo "Project setup cancelled"
+    exit 1
+}
+
 # ---------------------------------------------------------------------------------
 # Pre-requisites
 # ---------------------------------------------------------------------------------
@@ -27,31 +32,30 @@ pnpm install
 # ---------------------------------------------------------------------------------
 
 echo
-echo -n "Monorepo name: "
+echo -n "Pick a monorepo name: "
 read MONOREPO_NAME
 
 if [[ -z "$MONOREPO_NAME" ]]; then
-    echo "Error: Package name must be provided."
-    exit 1
+    echo "Error: Monorepo name must be provided."
+    cancel-setup
 fi
 
 if echo "$MONOREPO_NAME" | grep -q " "; then
-    echo "Error: Package name contains spaces."
-    exit 1
+    echo "Error: Monorepo name contains spaces."
+    cancel-setup
 fi
 
 echo
-echo "Apps' and packages' names will be prefixed with \"@$MONOREPO_NAME/\" e.g."
+echo "Names of apps and packages will be prefixed with \"@$MONOREPO_NAME/\" e.g."
 echo "  @$MONOREPO_NAME/utils"
 echo "  @$MONOREPO_NAME/web"
 echo "  @$MONOREPO_NAME/api"
 echo
 
 if confirm; then
-    echo "Thanks for confirming! Let's configure your monorepo."
+    echo "Thanks for confirming."
 else
-    echo "Cancelling project setup..."
-    exit 1
+    cancel-setup
 fi
 
 # ---------------------------------------------------------------------------------
@@ -59,11 +63,12 @@ fi
 # ---------------------------------------------------------------------------------
 
 echo
-echo "Configuring monorepo..."
+echo "Configuring monorepo"
 
 echo -n $MONOREPO_NAME >monorepo-management/constants/MONOREPO_NAME
 
 # delete "setup" from pnpm commands and accompanying script
+# IMPORTANT: keep line 5 below in sync with monorepo root package.json
 sed -i '' \
     -e '5d' \
     -e "s/__MONOREPO_NAME__/$MONOREPO_NAME/" \
@@ -71,11 +76,11 @@ sed -i '' \
 rm -f monorepo-management/scripts/first-time-setup.sh
 
 # ---------------------------------------------------------------------------------
-# Set up git
+# Re-initialize and configure git repository
 # ---------------------------------------------------------------------------------
 
 echo
-echo "Setting up git..."
+echo "Initializing and configuring git repository"
 
 rm -rf .git
 git init
@@ -84,4 +89,11 @@ cp monorepo-management/git-hooks/pre-commit .git/hooks/
 chmod +x .git/hooks/pre-commit
 
 git add -A
-git commit -m "first commit"
+git commit -m "First commit"
+
+# ---------------------------------------------------------------------------------
+# Done
+# ---------------------------------------------------------------------------------
+
+echo
+echo "Monorepo setup done! Happy coding :)"
